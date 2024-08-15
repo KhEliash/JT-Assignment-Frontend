@@ -20,7 +20,7 @@ function Login() {
     navigate(location?.state ? location.state : "/");
   };
   return (
-    <div className="flex items-center justify-center h-screen">
+    <div className="flex items-center justify-center md:h-screen">
       <div className="p-5 rounded-xl shadow-2xl bg-base-100 w-1/2">
         <h1 className="font-bold text-2xl text-center text-blue-500">
           Login Here
