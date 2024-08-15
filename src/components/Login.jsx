@@ -21,11 +21,11 @@ function Login() {
   };
   return (
     <div className="flex items-center justify-center md:h-screen">
-      <div className="p-5 rounded-xl shadow-2xl bg-base-100 w-1/2">
+      <div className="p-5 rounded-xl shadow-2xl bg-base-100 w-full mx-2 md:w-1/2">
         <h1 className="font-bold text-2xl text-center text-blue-500">
           Login Here
         </h1>
-        <form className="lg:card-body" onSubmit={handleLogin}>
+        <form className="" onSubmit={handleLogin}>
           <div className="form-control">
             <label className="label">
               <span className="label-text">Email</span>
