@@ -5,7 +5,7 @@ import Footer from "./components/Footer";
 
 function App() {
   return (
-    <div>
+    <div className="container mx-auto">
       <Nabbar></Nabbar>
       <div className="min-h-screen">
         <Outlet></Outlet>
