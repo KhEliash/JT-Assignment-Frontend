@@ -1,15 +1,19 @@
 function Card({ product }) {
-  const { category, name, image, price, ratings, description, createdAt,brand } =
-    product;
+  const {
+    category,
+    name,
+    image,
+    price,
+    ratings,
+    description,
+    createdAt,
+    brand,
+  } = product;
   return (
     <>
       <div className="w-full h-96 sm:w-full sm:h-100 md:w-full md:h-112 lg:w-full lg:h-128 rounded-lg overflow-hidden shadow-lg bg-white transform transition-transform duration-300 hover:scale-105 m-5 flex flex-col">
         <div className="h-40">
-          <img
-            className="w-full h-full object-cover"
-            src={image}
-            alt="product"
-          />
+          <img className="w-full h-40  object-fit" src={image} alt="product" />
         </div>
         <div className="p-4 flex-1 flex flex-col justify-between overflow-hidden">
           <div className="flex-1 overflow-y-auto">
