@@ -1,5 +1,5 @@
 function Card({ product }) {
-  const { category, name, image, price, ratings, description, createdAt } =
+  const { category, name, image, price, ratings, description, createdAt,brand } =
     product;
   return (
     <>
@@ -15,6 +15,7 @@ function Card({ product }) {
           <div className="flex-1 overflow-y-auto">
             <h2 className="text-xl font-semibold text-gray-800 mb-2">{name}</h2>
             <p className="text-sm text-gray-500 mb-1">Category: {category}</p>
+            <p className="text-sm text-gray-500 mb-1">Brand: {brand}</p>
             <p className="text-xs text-gray-400 mb-3">
               Created At: {createdAt}
             </p>
