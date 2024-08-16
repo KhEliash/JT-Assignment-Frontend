@@ -20,7 +20,7 @@ function Home() {
   const [searchTerm, setSearchTerm] = useState("");
   useEffect(() => {
     axios
-      .get("http://localhost:5000/product", {
+      .get("https://jt-backend.onrender.com/product", {
         params: {
           page: currentPage,
           limit: 10,
