@@ -9,6 +9,10 @@ function Home() {
   const [totalPages, setTotalPages] = useState(1);
   const [sortField, setSortField] = useState("createdAt");
   const [sortOrder, setSortOrder] = useState("desc");
+  const [category, setCategory] = useState('');
+  const [brand, setBrand] = useState('');
+  const [minPrice, setMinPrice] = useState(0);
+  const [maxPrice, setMaxPrice] = useState(10000);
   useEffect(() => {
     axios
       .get(
@@ -36,10 +40,63 @@ function Home() {
   };
   return (
     <>
+ {/* Filtering Options */}
+ <div className="flex flex-wrap justify-center gap-4 mb-8">
+                <select
+                    onChange={(e) => setCategory(e.target.value)}
+                    value={category}
+                    className="p-2 border border-gray-300 rounded-md shadow-sm"
+                >
+                    <option value="">All Categories</option>
+                    <option value="Electronics">Electronics</option>
+                    <option value="Clothing">Sportswear</option>
+                    <option value="Books">Home Appliances</option>
+                </select>
+
+                <select
+                    onChange={(e) => setBrand(e.target.value)}
+                    value={brand}
+                    className="p-2 border border-gray-300 rounded-md shadow-sm"
+                >
+                    <option value="">All Brands</option>
+                    <option value="BrandA">TechBrand</option>
+                    <option value="BrandB"> SoundMaster</option>
+                    <option value="BrandB"> GigaTech</option>
+                    <option value="BrandB"> RunMaster</option>
+                    <option value="BrandB"> FitFlex</option>
+                </select>
+
+                <input
+                    type="number"
+                    placeholder="Min Price"
+                    value={minPrice}
+                    onChange={(e) => setMinPrice(e.target.value)}
+                    className="p-2 border border-gray-300 rounded-md shadow-sm"
+                />
+
+                <input
+                    type="number"
+                    placeholder="Max Price"
+                    value={maxPrice}
+                    onChange={(e) => setMaxPrice(e.target.value)}
+                    className="p-2 border border-gray-300 rounded-md shadow-sm"
+                />
+
+                <button
+                    onClick={() => setCurrentPage(1)}
+                    className="p-2 bg-blue-500 text-white rounded-md shadow-sm hover:bg-blue-600"
+                >
+                    Apply Filters
+                </button>
+            </div>
+
+
+
+
       {/* sorting */}
-      <div className="sort-options mb-4 ml-2">
+      <div className="sort-options ml-2">
         <select
-          className="w-full sm:w-auto px-4 py-2 bg-blue-500 text-white font-semibold rounded-lg shadow-md hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-opacity-75"
+          className=" px-4 py-2  bg-blue-500 text-white font-semibold rounded-md shadow-md hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-opacity-75"
           onChange={(e) => {
             const [sortField, sortOrder] = e.target.value.split(",");
             handleSortChange(sortField, sortOrder);
