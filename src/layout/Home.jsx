@@ -37,35 +37,23 @@ function Home() {
   return (
     <>
       {/* sorting */}
-      <div className="sort-options flex flex-col sm:flex-row sm:flex-wrap gap-2 sm:gap-1 mb-4 ml-2">
-        <button
-          className="w-full sm:w-auto sm:px-1 px-4 py-2 bg-blue-500 text-white font-semibold rounded-lg shadow-md hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-opacity-75"
-          onClick={() => handleSortChange("price", "asc")}
+      <div className="sort-options mb-4 ml-2">
+        <select
+          className="w-full sm:w-auto px-4 py-2 bg-blue-500 text-white font-semibold rounded-lg shadow-md hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-opacity-75"
+          onChange={(e) => {
+            const [sortField, sortOrder] = e.target.value.split(",");
+            handleSortChange(sortField, sortOrder);
+          }}
         >
-          Price: Low to High
-        </button>
-        <button
-          className="w-full sm:w-auto sm:px-1 px-4 py-2 bg-blue-500 text-white font-semibold rounded-lg shadow-md hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-opacity-75"
-          onClick={() => handleSortChange("price", "desc")}
-        >
-          Price: High to Low
-        </button>
-        <button
-          className="w-full sm:w-auto sm:px-1 px-4 py-2 bg-blue-500 text-white font-semibold rounded-lg shadow-md hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-opacity-75"
-          onClick={() => handleSortChange("createdAt", "desc")}
-        >
-          Date: Newest First
-        </button>
-        <button
-          className="w-full sm:w-auto sm:px-1 px-4 py-2 bg-blue-500 text-white font-semibold rounded-lg shadow-md hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-opacity-75"
-          onClick={() => handleSortChange("createdAt", "asc")}
-        >
-          Date: Oldest First
-        </button>
+          <option value="price,asc">Price: Low to High</option>
+          <option value="price,desc">Price: High to Low</option>
+          <option value="createdAt,desc">Date: Newest First</option>
+          <option value="createdAt,asc">Date: Oldest First</option>
+        </select>
       </div>
 
       {/* oroduct cards */}
-      <div className="grid gap-5 px-2 grid-cols-1 md:grid-cols-2 lg:grid-cols-3 place-items-center">
+      <div className="grid md:gap-5 px-2 grid-cols-1 md:grid-cols-2 lg:grid-cols-3 place-items-center">
         {products.map((p) => (
           <Card key={p._id} product={p}>
             hi
