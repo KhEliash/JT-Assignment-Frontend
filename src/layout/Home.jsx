@@ -19,8 +19,9 @@ function Home() {
   const [maxPrice, setMaxPrice] = useState(10000);
   const [searchTerm, setSearchTerm] = useState("");
   useEffect(() => {
+    // https://jt-backend.onrender.com
     axios
-      .get("https://jt-backend.onrender.com/product", {
+      .get("https://jt-backend.vercel.app/product", {
         params: {
           page: currentPage,
           limit: 10,
@@ -68,7 +69,9 @@ function Home() {
   return (
     <>
       {!user ? (
-        <h1 className="text-center mt-5 font-bold text-2xl text-red-500">Login First</h1>
+        <h1 className="text-center mt-5 font-bold text-2xl text-red-500">
+          Login First
+        </h1>
       ) : (
         <div>
           {/* Filtering Options */}
